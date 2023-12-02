@@ -8,6 +8,8 @@
       
       
       
+        <link rel="canonical" href="https://eth-2-key-manager-api-client.slingnode.com/testing/">
+      
       
         <link rel="prev" href="../examples/">
       
@@ -760,10 +762,8 @@ PRYSM<span class="w"> </span>http://192.168.121.53:7500<span class="w"> </span>e
 <h1 id="testing-using-ansible-molecule">Testing using Ansible Molecule</h1>
 <p>The project includes a Molecule test suite that can be used to test the API client against a real Ethereum Validator client. Molecule is a testing framework for Ansible roles. The test suite is located in the <code>molecule</code> directory. The test suite uses SlingNode Ethereum Ansible roles to set up the Ethereum Validator clients. The included test suite will automatically create the .env file and output the details required by the pytest e2e tests.</p>
 <p>See SlingNode Ethereum Ansible roles documentation for more details:</p>
-<ul>
-<li>https://docs.slingnode.com/slingnode.ethereum/</li>
-<li>https://docs.slingnode.com/slingnode.ethereum_node_mgmt/</li>
-</ul>
+<p>https://docs.slingnode.com/slingnode.ethereum/
+https://docs.slingnode.com/slingnode.ethereum_node_mgmt/</p>
 <p>Using the Molecule test suite requires working kvm/libvirt and Vagrant on the machine running the tests. For details see SlingNode Ethereum documentation page on testing https://docs.slingnode.com/slingnode.ethereum/testing</p>
 <p>The project comes with two Molecule scenarios (test suites):</p>
 <ul>
