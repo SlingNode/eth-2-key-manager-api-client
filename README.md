@@ -59,7 +59,8 @@ eth_2_key_manager = eth_2_key_manager_api_client.Eth2KeyManager(base_url="http:/
 
 # Examples
 
-For full list of examples refer to [Examples](examples.md)
+For full list of examples refer to [examples](https://eth-2-key-manager-api-client.slingnode.com/).
+
 ## Import keystores
 
 ```python
