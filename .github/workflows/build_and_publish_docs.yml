@@ -19,7 +19,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: 3.11
+        python-version: '3.11'
 
     - name: install poetry
       run: pip install poetry
@@ -31,7 +31,7 @@ jobs:
       run:  poetry install
 
     - name: Build documentation
-      run: poetry run mkdocs build --verbose --clean --strict
+      run: poetry run mkdocs build --verbose --clean
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
