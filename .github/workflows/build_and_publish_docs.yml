@@ -1,11 +1,14 @@
-name: Deploy MkDocs to GitHub Pages
+name: Build and deploy docs to GitHub Pages
 
-on:
-  push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
+on: workflow_dispatch
 
+  # push:
+  #   branches:
+  #     - master
+  #   paths:
+  #     - 'mkdocs.yml'
+  #     - 'docs/**'
+  #     - 'eth_2_key_manager_api_client/**'
 
 jobs:
   deploy:
@@ -21,11 +24,14 @@ jobs:
     - name: install poetry
       run: pip install poetry
 
+    - name: Configure Poetry
+      run: poetry config virtualenvs.in-project true
+
     - name: Install dependencies
       run:  poetry install
 
     - name: Build documentation
-      run: mkdocs build --verbose --clean --strict
+      run: poetry run mkdocs build --verbose --clean --strict
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
