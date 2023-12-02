@@ -1,14 +1,13 @@
 name: Build and deploy docs to GitHub Pages
 
-on: workflow_dispatch
-
-  # push:
-  #   branches:
-  #     - master
-  #   paths:
-  #     - 'mkdocs.yml'
-  #     - 'docs/**'
-  #     - 'eth_2_key_manager_api_client/**'
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'mkdocs.yml'
+      - 'docs/**'
+      - 'eth_2_key_manager_api_client/**'
 
 jobs:
   deploy:

@@ -12,7 +12,7 @@ on: workflow_dispatch
   # #     - 'eth_2_key_manager_api_client/**'
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
