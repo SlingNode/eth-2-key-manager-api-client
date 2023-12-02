@@ -1,0 +1,42 @@
+[tool.poetry]
+name = "eth-2-key-manager-api-client"
+version = "0.1.0"
+description = "A client library for accessing ETH2 key manager API"
+
+authors = ["karolpivo <https://github.com/karolpivo>", "SlingNode <https://github.com/SlingNode"]
+
+readme = "README.md"
+packages = [
+    {include = "eth_2_key_manager_api_client"}
+]
+include = ["CHANGELOG.md", "eth_2_key_manager_api_client/py.typed"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+httpx = "^0.25.0"
+attrs = "23.1.0"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.2"
+pytest-asyncio = "^0.21.1"
+pytest-cov = "^4.1.0"
+pytest-mock = "^3.11.1"
+pytest-httpx = "^0.26.0"
+python-dotenv = "^1.0.0"
+mkdocs = "^1.5.3"
+mkdocs-material = "^9.4.1"
+mkdocstrings = {extras = ["python"], version = "^0.23.0"}
+markdown-include = "^0.8.1"
+
+
+[project.urls]
+Changelog = "https://github.com/SlingNode/eth-2-key-manager-api-client/blob/master/CHANGELOG.md"
+Documentation = "https://eth-2-key-manager-api-client.slingnode.com"
+Homepage = "https://github.com/SlingNode/eth-2-key-manager-api-client"
+Source = "https://github.com/SlingNode/eth-2-key-manager-api-client"
+
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

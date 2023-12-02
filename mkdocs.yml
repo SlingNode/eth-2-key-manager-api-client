@@ -1,0 +1,39 @@
+site_name: ETH2 Key Manager API Client for Python
+
+theme:
+  # name: readthedocs
+  name: material
+  logo: assets/slingnode_logo.png
+
+google_analytics: ['G-RP2KW7BLCD', 'auto']
+
+nav:
+  - Home: index.md
+  - Examples: examples.md
+  - Testing: testing.md
+  - 'API Reference':
+    - api_reference/eth_2_keymanager.md
+    - api_reference/client.md
+    - api_reference/helpers.md
+    - api_reference/errors.md
+    - api_reference/types.md
+    - API:
+      - fee_recipient: api_reference/api/fee_recipient.md
+      - gas_limit: api_reference/api/gas_limit.md
+      - local_key_manager: api_reference/api/local_key_manager.md
+      - remote_key_manager: api_reference/api/remote_key_manager.md
+    - Models:
+      - fee_recipient: api_reference/models/fee_recipient.md
+      - gas_limit: api_reference/models/gas_limit.md
+      - keystores: api_reference/models/keystores.md
+      - remote_key_manager: api_reference/models/remote_key_manager.md
+
+plugins:
+  - mkdocstrings:
+      default_handler: python
+
+markdown_extensions:
+  - pymdownx.highlight:
+      use_pygments: true
+  - pymdownx.superfences
+  - pymdownx.snippets

@@ -1,0 +1,150 @@
+---
+role_name_check: 1
+dependency:
+  name: galaxy
+  options:
+    ignore-certs: true
+    ignore-errors: true
+    role-file: requirements_dev.yml
+    requirements-file: requirements.yml
+
+
+driver:
+  name: vagrant
+  provider:
+    name: libvirt
+  provision: false
+  cachier: machine
+  parallel: true
+  default_box: '${SLINGNODE_BOX:-slingnode/ubuntu2204}'
+
+
+platforms:
+  - name: lighthouse
+    hostname: lighthouse
+    config_options:
+      ssh.keep_alive: true
+      ssh.remote_user: 'vagrant'
+      synced_folder: false
+    memory: 5120
+    cpus: 4
+    provider_options:
+      video_type: 'vga'
+      driver: 'kvm'
+      cpu_mode: 'host-passthrough'
+      video_vram: '16384'
+
+  # - name: prysm
+  #   hostname: prysm
+  #   config_options:
+  #     ssh.keep_alive: true
+  #     ssh.remote_user: 'vagrant'
+  #     synced_folder: false
+  #   memory: 5120
+  #   cpus: 4
+  #   provider_options:
+  #     video_type: 'vga'
+  #     driver: 'kvm'
+  #     cpu_mode: 'host-passthrough'
+  #     video_vram: '16384'
+
+  - name: nimbus
+    hostname: nimbus
+    config_options:
+      ssh.keep_alive: true
+      ssh.remote_user: 'vagrant'
+      synced_folder: false
+    memory: 5120
+    cpus: 4
+    provider_options:
+      video_type: 'vga'
+      driver: 'kvm'
+      cpu_mode: 'host-passthrough'
+      video_vram: '16384'
+
+  - name: lodestar
+    hostname: lodestar
+    config_options:
+      ssh.keep_alive: true
+      ssh.remote_user: 'vagrant'
+      synced_folder: false
+    memory: 5120
+    cpus: 4
+    provider_options:
+      video_type: 'vga'
+      driver: 'kvm'
+      cpu_mode: 'host-passthrough'
+      video_vram: '16384'
+
+  - name: teku
+    hostname: teku
+    config_options:
+      ssh.keep_alive: true
+      ssh.remote_user: 'vagrant'
+      synced_folder: false
+    memory: 5120
+    cpus: 4
+    provider_options:
+      video_type: 'vga'
+      driver: 'kvm'
+      cpu_mode: 'host-passthrough'
+      video_vram: '16384'
+
+
+provisioner:
+  name: ansible
+  env:
+    ANSIBLE_PIPELINING: "True"
+  playbooks:
+    converge: ../resources/playbooks/converge_multiple.yml
+    prepare: ../resources/playbooks/prepare.yml
+  inventory:
+    group_vars:
+      all:
+        deploy_consensus: true
+        deploy_execution: false
+        deploy_validator: true
+        expose_validator_api_port_to_host: true
+        validator_api_enabled: true
+        enable_firewall: false
+        host_ip_address_to_bind_to: 0.0.0.0
+    host_vars:
+      lighthouse:
+        clients:
+          consensus: lighthouse
+          validator: lighthouse
+      prysm:
+        clients:
+          consensus: prysm
+          validator: prysm
+      nimbus:
+        clients:
+          consensus: nimbus
+          validator: nimbus
+      lodestar:
+        clients:
+          consensus: lodestar
+          validator: lodestar
+      teku:
+        clients:
+          consensus: teku
+          validator: teku
+        teku_validator_api_certificate_subject_alternative_names: "IP:{{ hostvars['teku']['ansible_default_ipv4']['address'] }}"
+
+
+verifier:
+  name: ansible
+
+
+scenario:
+  name: all_validator_clients
+  test_sequence:
+    - lint
+    - destroy
+    - dependency
+    - syntax
+    - create
+    - prepare
+    - converge
+    - verify
+    - destroy

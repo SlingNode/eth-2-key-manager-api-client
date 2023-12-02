@@ -1,0 +1,10 @@
+::: eth_2_key_manager_api_client.models.import_keystores_json_body
+::: eth_2_key_manager_api_client.models.import_keystores_response_data_item
+::: eth_2_key_manager_api_client.models.import_keystores_response_data_item_status
+::: eth_2_key_manager_api_client.models.import_keystores_response
+::: eth_2_key_manager_api_client.models.list_keys_response_data_item
+::: eth_2_key_manager_api_client.models.list_keys_response
+::: eth_2_key_manager_api_client.models.delete_keys_json_body
+::: eth_2_key_manager_api_client.models.delete_keys_response_data_item
+::: eth_2_key_manager_api_client.models.delete_keys_response_data_item_status
+::: eth_2_key_manager_api_client.models.delete_keys_response

@@ -1,0 +1,34 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v3.2.0
+    hooks:
+    -   id: trailing-whitespace
+        exclude: ".*/site/"
+    -   id: end-of-file-fixer
+        exclude: ".*/site/"
+    -   id: check-yaml
+    -   id: check-added-large-files
+        exclude: ".*/site/"
+  - repo: https://github.com/psf/black
+    rev: 22.8.0
+    hooks:
+      - id: black
+        args: ["--line-length", "160", "--extend-exclude", "tests/e2e/"]
+  - repo: https://github.com/pycqa/isort
+    rev: 5.12.0
+    hooks:
+      - id: isort
+        name: isort (python)
+        args: ["--skip", "e2e"]
+  - repo: https://github.com/PyCQA/autoflake
+    rev: v2.2.1
+    hooks:
+      - id: autoflake
+        args: ["--remove-all-unused-imports", "--remove-unused-variables", "--in-place", "--recursive", "--exclude", ".venv"]
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: 'v1.5.1'
+    hooks:
+    -   id: mypy
+        exclude: ".*/site/|.*/tests/"
+        args: ["--ignore-missing-imports", "--strict-optional", "--no-incremental", "--new-type-inference"]
+        additional_dependencies: ["attrs==23.1.0"]

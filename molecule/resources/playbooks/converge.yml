@@ -1,0 +1,105 @@
+---
+- name: Converge
+  hosts: all
+  become: true
+  gather_facts: true
+
+  vars:
+    dotenv_file_path: ../../../.env
+
+
+  pre_tasks:
+    - name: Delete existing .env file
+      local_action: >
+        shell rm -f {{ dotenv_file_path }}
+      become: false
+
+  tasks:
+    - name: "Include ethereum"
+      ansible.builtin.include_role:
+        name: slingnode.ethereum
+
+    - name: Get Lighthouse validator api token
+      ansible.builtin.command: head -n 1 /opt/blockchain/validator/lighthouse/validators/api-token.txt
+      register: validator_api_token_lighthouse
+      when: clients.validator == "lighthouse"
+      retries: 30
+      delay: 5
+      until: validator_api_token_lighthouse.rc == 0
+
+
+    - name: export the IP address of the Lighthouse instance
+      local_action: >
+       shell printf "LIGHTHOUSE http://{{ ansible_default_ipv4.address }}:7500 {{ validator_api_token_lighthouse.stdout }}" > {{ dotenv_file_path }}
+      become: false
+      when: clients.validator == "lighthouse"
+
+
+    # - name: Get Prysm validator api token
+    #   ansible.builtin.command: sed -n '2p' /opt/blockchain/validator/prysm/auth-token
+    #   register: validator_api_token_prysm
+    #   when: clients.validator == "prysm"
+    #   retries: 30
+    #   delay: 5
+    #   until: validator_api_token_prysm.rc == 0
+
+
+    # - name: export the IP address of the Prysm instance
+    #   local_action:
+    #     shell printf "\nPRYSM http://{{ ansible_default_ipv4.address }}:7500 {{ validator_api_token_prysm.stdout }}" >> {{ dotenv_file_path }}
+    #   become: false
+    #   when: clients.validator == "prysm"
+
+
+    - name: Get Teku validator api token
+      ansible.builtin.command: head -n 1 /opt/blockchain/validator/teku/validator/key-manager/validator-api-bearer
+      register: validator_api_token_teku
+      when: clients.validator == "teku"
+      retries: 30
+      delay: 5
+      until: validator_api_token_teku.rc == 0
+
+
+    - name: export the IP address of the Teku instance
+      local_action:
+        shell printf "\nTEKU https://{{ ansible_default_ipv4.address }}:7500 {{ validator_api_token_teku.stdout }}" >> {{ dotenv_file_path }}
+      become: false
+      when: clients.validator == "teku"
+
+
+    - name: Get Nimbus validator api token
+      ansible.builtin.command: head -n 1 /opt/blockchain/validator/nimbus/api-token.txt
+      register: validator_api_token_nimbus
+      when: clients.validator == "nimbus"
+      retries: 30
+      delay: 5
+      until: validator_api_token_nimbus.rc == 0
+
+
+    - name: export the IP address of the Nimbus instance
+      local_action:
+        shell printf "\nNIMBUS http://{{ ansible_default_ipv4.address }}:7500 {{ validator_api_token_nimbus.stdout }}" >> {{ dotenv_file_path }}
+      become: false
+      when: clients.validator == "nimbus"
+
+
+    - name: Get Lodestar validator api token
+      ansible.builtin.command: head -n 1 /opt/blockchain/validator/lodestar/validator-db/api-token.txt
+      register: validator_api_token_lodestar
+      when: clients.validator == "lodestar"
+      retries: 30
+      delay: 5
+      until: validator_api_token_lodestar.rc == 0
+
+
+    - name: export the IP address of the Lodestar instance
+      local_action:
+        shell printf "\nLODESTAR http://{{ ansible_default_ipv4.address }}:7500 {{ validator_api_token_lodestar.stdout }}" >> {{ dotenv_file_path }}
+      become: false
+      when: clients.validator == "lodestar"
+
+
+    - name: Stop conensus container (it's required to start validators but once they are running it's not needed anymore)
+      ansible.builtin.command: docker stop consensus
+      become: true
+      ignore_errors: true

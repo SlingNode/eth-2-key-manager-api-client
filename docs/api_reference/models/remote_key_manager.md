@@ -1,0 +1,12 @@
+::: eth_2_key_manager_api_client.models.delete_remote_keys_json_body
+::: eth_2_key_manager_api_client.models.delete_remote_keys_response_data_item
+::: eth_2_key_manager_api_client.models.delete_remote_keys_response_data_item_status
+::: eth_2_key_manager_api_client.models.delete_remote_keys_response
+::: eth_2_key_manager_api_client.models.import_remote_keys_json_body
+::: eth_2_key_manager_api_client.models.import_remote_keys_json_body_remote_keys_item
+::: eth_2_key_manager_api_client.models.import_remote_keys_response_data_item
+::: eth_2_key_manager_api_client.models.import_remote_keys_response_data_item_status
+::: eth_2_key_manager_api_client.models.import_remote_keys_response
+::: eth_2_key_manager_api_client.models.import_remote_signer_definition
+::: eth_2_key_manager_api_client.models.list_remote_keys_response_data_item
+::: eth_2_key_manager_api_client.models.list_remote_keys_response
