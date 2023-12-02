@@ -37,3 +37,5 @@ markdown_extensions:
       use_pygments: true
   - pymdownx.superfences
   - pymdownx.snippets
+
+site_url: https://eth-2-key-manager-api-client.slingnode.com/

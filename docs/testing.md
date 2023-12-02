@@ -47,8 +47,8 @@ The project includes a Molecule test suite that can be used to test the API clie
 
 See SlingNode Ethereum Ansible roles documentation for more details:
 
-- https://docs.slingnode.com/slingnode.ethereum/
-- https://docs.slingnode.com/slingnode.ethereum_node_mgmt/
+https://docs.slingnode.com/slingnode.ethereum/
+https://docs.slingnode.com/slingnode.ethereum_node_mgmt/
 
 
 Using the Molecule test suite requires working kvm/libvirt and Vagrant on the machine running the tests. For details see SlingNode Ethereum documentation page on testing https://docs.slingnode.com/slingnode.ethereum/testing
