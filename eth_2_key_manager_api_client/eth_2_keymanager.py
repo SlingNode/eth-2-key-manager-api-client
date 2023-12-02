@@ -49,8 +49,8 @@ class Eth2KeyManager:
 
     def __init__(
         self,
-        base_url: str | None = None,
-        token: str | None = None,
+        base_url: Union[str, None] = None,
+        token: Union[str, None] = None,
         cookies: Dict[str, str] = {},
         headers: Dict[str, str] = {},
         timeout: float = 10.0,
