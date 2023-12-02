@@ -1,0 +1,889 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../testing/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.6">
+    
+    
+      
+        <title>Examples - ETH2 Key Manager API Client for Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.35e1ed30.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#examples" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="ETH2 Key Manager API Client for Python" class="md-header__button md-logo" aria-label="ETH2 Key Manager API Client for Python" data-md-component="logo">
+      
+  <img src="../assets/slingnode_logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ETH2 Key Manager API Client for Python
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Examples
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="ETH2 Key Manager API Client for Python" class="md-nav__button md-logo" aria-label="ETH2 Key Manager API Client for Python" data-md-component="logo">
+      
+  <img src="../assets/slingnode_logo.png" alt="logo">
+
+    </a>
+    ETH2 Key Manager API Client for Python
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Examples
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Testing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    API Reference
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            API Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api_reference/eth_2_keymanager/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Eth 2 keymanager
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api_reference/client/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Client
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api_reference/helpers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Helpers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api_reference/errors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Errors
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api_reference/types/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Types
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    API
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api_reference/api/fee_recipient/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    fee_recipient
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api_reference/api/gas_limit/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    gas_limit
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api_reference/api/local_key_manager/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    local_key_manager
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api_reference/api/remote_key_manager/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    remote_key_manager
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Models
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7">
+            <span class="md-nav__icon md-icon"></span>
+            Models
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api_reference/models/fee_recipient/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    fee_recipient
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api_reference/models/gas_limit/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    gas_limit
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api_reference/models/keystores/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    keystores
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api_reference/models/remote_key_manager/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    remote_key_manager
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="examples">Examples</h1>
+<p>The example scripts are located in the examples directory.</p>
+<h1 id="local-key-manager">Local Key Manager</h1>
+<h2 id="import-keystores">Import keystores</h2>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">eth_2_key_manager_api_client</span>
+
+<span class="c1"># Create lists of keystore and password strings, note: the order of the lists must match `passwords[i]` must unlock `keystores[i]`</span>
+<span class="n">list_of_keystore_strs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">list_of_keystore_password_strs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="n">keystore_files</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;mock_validator_keystores/keystore-m_12381_3600_0_0_0-1669980799.json&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;mock_validator_keystores/keystore-m_12381_3600_1_0_0-1680087924.json&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;mock_validator_keystores/keystore-m_12381_3600_2_0_0-1680087924.json&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="c1"># Read the keystores as strings</span>
+<span class="k">for</span> <span class="n">keystore_file</span> <span class="ow">in</span> <span class="n">keystore_files</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">keystore_file</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">list_of_keystore_strs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+
+<span class="c1"># Read the passwords as strings</span>
+<span class="n">keystore_password_files</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;mock_validator_keystores/keystore-m_12381_3600_0_0_0-1669980799.txt&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;mock_validator_keystores/keystore-m_12381_3600_1_0_0-1680087924.txt&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;mock_validator_keystores/keystore-m_12381_3600_2_0_0-1680087924.txt&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="k">for</span> <span class="n">keystore_password_file</span> <span class="ow">in</span> <span class="n">keystore_password_files</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">keystore_password_file</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">list_of_keystore_password_strs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;mock_validator_keystores/slashing_protection_db.json&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">slashing_protection_str</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="n">eth_2_key_manager</span> <span class="o">=</span> <span class="n">eth_2_key_manager_api_client</span><span class="o">.</span><span class="n">Eth2KeyManager</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="mf">10.0</span><span class="p">)</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">eth_2_key_manager</span><span class="o">.</span><span class="n">import_keystores</span><span class="o">.</span><span class="n">sync_detailed</span><span class="p">(</span><span class="n">list_of_keystore_strs</span><span class="p">,</span> <span class="n">list_of_keystore_password_strs</span><span class="p">,</span> <span class="n">slashing_protection_str</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Keystores imported successfully&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Keystores import failed with status code: </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span>
+</code></pre></div>
+<h2 id="list-keys">List keys</h2>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">eth_2_key_manager_api_client</span>
+
+<span class="n">eth_2_key_manager</span> <span class="o">=</span> <span class="n">eth_2_key_manager_api_client</span><span class="o">.</span><span class="n">Eth2KeyManager</span><span class="p">()</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">eth_2_key_manager</span><span class="o">.</span><span class="n">list_keys</span><span class="o">.</span><span class="n">sync_detailed</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Validator: </span><span class="si">{</span><span class="n">eth_2_key_manager</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">base_url</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">parsed</span><span class="p">,</span> <span class="n">eth_2_key_manager_api_client</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">list_keys_response</span><span class="o">.</span><span class="n">ListKeysResponse</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Number of keys: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">parsed</span><span class="o">.</span><span class="n">data</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">parsed</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;List of keys:&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">parsed</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    </span><span class="si">{</span><span class="n">key</span><span class="o">.</span><span class="n">validating_pubkey</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;List keys failed with status code: </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="delete-keys">Delete keys</h2>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">eth_2_key_manager_api_client</span>
+
+<span class="n">eth_2_key_manager</span> <span class="o">=</span> <span class="n">eth_2_key_manager_api_client</span><span class="o">.</span><span class="n">Eth2KeyManager</span><span class="p">()</span>
+<span class="n">pubkey</span> <span class="o">=</span> <span class="s2">&quot;0x874bed7931ba14832198a4070b881f89e7ddf81898dd800446ef382344e9726a5e6265acb21f5c8ee2759c313ec6ca0d&quot;</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">eth_2_key_manager</span><span class="o">.</span><span class="n">delete_keys</span><span class="o">.</span><span class="n">sync_detailed</span><span class="p">(</span><span class="n">pubkeys</span><span class="o">=</span><span class="p">[</span><span class="n">pubkey</span><span class="p">])</span>
+<span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Keystore deleted successfully&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Keystore delete failed with status code: </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span>
+</code></pre></div>
+<h1 id="gas-limit">Gas limit</h1>
+<h2 id="set-gas-limit">Set gas limit</h2>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">eth_2_key_manager_api_client</span>
+
+<span class="n">eth_2_key_manager</span> <span class="o">=</span> <span class="n">eth_2_key_manager_api_client</span><span class="o">.</span><span class="n">Eth2KeyManager</span><span class="p">()</span>
+<span class="n">pubkey</span> <span class="o">=</span> <span class="s2">&quot;0x99c4c42fac7d1393956bd9e2785ed67cf5aaca4bf56d2fcda94c42d6042aebb1723ce6bac6f0216ff8c5d4f9f013008b&quot;</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">eth_2_key_manager</span><span class="o">.</span><span class="n">set_gas_limit</span><span class="o">.</span><span class="n">sync_detailed</span><span class="p">(</span><span class="n">pubkey</span><span class="o">=</span><span class="n">pubkey</span><span class="p">,</span> <span class="n">gas_limit</span><span class="o">=</span><span class="s2">&quot;999999&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">202</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Gas limit set successfully&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Gas limit set failed with status code: </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">202</span>
+</code></pre></div>
+<h2 id="get-gas-limit">Get gas limit</h2>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">eth_2_key_manager_api_client</span>
+
+<span class="n">eth_2_key_manager</span> <span class="o">=</span> <span class="n">eth_2_key_manager_api_client</span><span class="o">.</span><span class="n">Eth2KeyManager</span><span class="p">()</span>
+<span class="n">pubkey</span> <span class="o">=</span> <span class="s2">&quot;0x99c4c42fac7d1393956bd9e2785ed67cf5aaca4bf56d2fcda94c42d6042aebb1723ce6bac6f0216ff8c5d4f9f013008b&quot;</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">eth_2_key_manager</span><span class="o">.</span><span class="n">get_gas_limit</span><span class="o">.</span><span class="n">sync_detailed</span><span class="p">(</span><span class="n">pubkey</span><span class="o">=</span><span class="n">pubkey</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">parsed</span><span class="p">,</span> <span class="n">eth_2_key_manager_api_client</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">list_gas_limit_response</span><span class="o">.</span><span class="n">ListGasLimitResponse</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Gas limit for pubkey </span><span class="si">{</span><span class="n">pubkey</span><span class="si">}</span><span class="s2"> is </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">parsed</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">gas_limit</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Gas limit listing failed with status code: </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span>
+</code></pre></div>
+<h2 id="delete-gas-limit">Delete gas limit</h2>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">eth_2_key_manager_api_client</span>
+
+<span class="n">eth_2_key_manager</span> <span class="o">=</span> <span class="n">eth_2_key_manager_api_client</span><span class="o">.</span><span class="n">Eth2KeyManager</span><span class="p">()</span>
+<span class="n">pubkey</span> <span class="o">=</span> <span class="s2">&quot;0x99c4c42fac7d1393956bd9e2785ed67cf5aaca4bf56d2fcda94c42d6042aebb1723ce6bac6f0216ff8c5d4f9f013008b&quot;</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">eth_2_key_manager</span><span class="o">.</span><span class="n">delete_gas_limit</span><span class="o">.</span><span class="n">sync_detailed</span><span class="p">(</span><span class="n">pubkey</span><span class="o">=</span><span class="n">pubkey</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">204</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Gas limit deleted successfully&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Gas limit deletion failed with status code: </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">204</span>
+</code></pre></div>
+<h1 id="fee-recipient">Fee recipient</h1>
+<h2 id="set-fee-recipient">Set fee recipient</h2>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">eth_2_key_manager_api_client</span>
+
+<span class="n">eth_2_key_manager</span> <span class="o">=</span> <span class="n">eth_2_key_manager_api_client</span><span class="o">.</span><span class="n">Eth2KeyManager</span><span class="p">()</span>
+<span class="n">pubkey</span> <span class="o">=</span> <span class="s2">&quot;0x99c4c42fac7d1393956bd9e2785ed67cf5aaca4bf56d2fcda94c42d6042aebb1723ce6bac6f0216ff8c5d4f9f013008b&quot;</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">eth_2_key_manager</span><span class="o">.</span><span class="n">set_fee_recipient</span><span class="o">.</span><span class="n">sync_detailed</span><span class="p">(</span><span class="n">pubkey</span><span class="o">=</span><span class="n">pubkey</span><span class="p">,</span> <span class="n">ethaddress</span><span class="o">=</span><span class="s2">&quot;0xabcf8e0d4e9587369b2301d0790347320302cc09&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">202</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fee Recipient set successfully&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Fee Recipient set failed with status code: </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">202</span>
+</code></pre></div>
+<h2 id="list-fee-recipient">List fee recipient</h2>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">eth_2_key_manager_api_client</span>
+
+<span class="n">eth_2_key_manager</span> <span class="o">=</span> <span class="n">eth_2_key_manager_api_client</span><span class="o">.</span><span class="n">Eth2KeyManager</span><span class="p">()</span>
+<span class="n">pubkey</span> <span class="o">=</span> <span class="s2">&quot;0x99c4c42fac7d1393956bd9e2785ed67cf5aaca4bf56d2fcda94c42d6042aebb1723ce6bac6f0216ff8c5d4f9f013008b&quot;</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">eth_2_key_manager</span><span class="o">.</span><span class="n">list_fee_recipient</span><span class="o">.</span><span class="n">sync_detailed</span><span class="p">(</span><span class="n">pubkey</span><span class="o">=</span><span class="n">pubkey</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">parsed</span><span class="p">,</span> <span class="n">eth_2_key_manager_api_client</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">list_fee_recipient_response</span><span class="o">.</span><span class="n">ListFeeRecipientResponse</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Fee recipient for pubkey </span><span class="si">{</span><span class="n">pubkey</span><span class="si">}</span><span class="s2"> is </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">parsed</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">ethaddress</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Fee Recipient listing failed with status code: </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span>
+</code></pre></div>
+<h2 id="delete-fee-recipient">Delete fee recipient</h2>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">eth_2_key_manager_api_client</span>
+
+<span class="n">eth_2_key_manager</span> <span class="o">=</span> <span class="n">eth_2_key_manager_api_client</span><span class="o">.</span><span class="n">Eth2KeyManager</span><span class="p">()</span>
+<span class="n">pubkey</span> <span class="o">=</span> <span class="s2">&quot;0x99c4c42fac7d1393956bd9e2785ed67cf5aaca4bf56d2fcda94c42d6042aebb1723ce6bac6f0216ff8c5d4f9f013008b&quot;</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">eth_2_key_manager</span><span class="o">.</span><span class="n">delete_fee_recipient</span><span class="o">.</span><span class="n">sync_detailed</span><span class="p">(</span><span class="n">pubkey</span><span class="o">=</span><span class="n">pubkey</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">204</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fee Recipient deleted successfully&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Fee Recipient deletion failed with status code: </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">204</span>
+</code></pre></div>
+<h1 id="remote-key-manager">Remote Key Manager</h1>
+<h2 id="import-remote-keys">Import remote keys</h2>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">eth_2_key_manager_api_client</span>
+
+<span class="n">remote_keys</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;pubkey&quot;</span><span class="p">:</span> <span class="s2">&quot;0x93247f2209abcacf57b75a51dafae777f9dd38bc7053d1af526f220a7489a6d3a2753e5f3e8b1cfe39b56f43611df74a&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://remote.signer&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+
+<span class="n">eth_2_key_manager</span> <span class="o">=</span> <span class="n">eth_2_key_manager_api_client</span><span class="o">.</span><span class="n">Eth2KeyManager</span><span class="p">()</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">eth_2_key_manager</span><span class="o">.</span><span class="n">import_remote_keys</span><span class="o">.</span><span class="n">sync_detailed</span><span class="p">(</span><span class="n">remote_keys</span><span class="o">=</span><span class="n">remote_keys</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Remote keys imported successfully&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Remote keys import failed with status code: </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="list-remote-keys">List remote keys</h2>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">eth_2_key_manager_api_client</span>
+
+<span class="n">eth_2_key_manager</span> <span class="o">=</span> <span class="n">eth_2_key_manager_api_client</span><span class="o">.</span><span class="n">Eth2KeyManager</span><span class="p">()</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">eth_2_key_manager</span><span class="o">.</span><span class="n">list_remote_keys</span><span class="o">.</span><span class="n">sync_detailed</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Validator: </span><span class="si">{</span><span class="n">eth_2_key_manager</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">base_url</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Assert that the response is of the expected type to satisfy static type checking.</span>
+    <span class="c1"># Ref: https://mypy.readthedocs.io/en/stable/error_code_list.html#check-that-attribute-exists-in-each-union-item-union-attr</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">parsed</span><span class="p">,</span> <span class="n">eth_2_key_manager_api_client</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">list_remote_keys_response</span><span class="o">.</span><span class="n">ListRemoteKeysResponse</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Number of remote keys: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">parsed</span><span class="o">.</span><span class="n">data</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">parsed</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;List of keys:&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">parsed</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    </span><span class="si">{</span><span class="n">key</span><span class="o">.</span><span class="n">pubkey</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;List remote keys failed with status code: </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="delete-remote-keys">Delete remote keys</h2>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">eth_2_key_manager_api_client</span>
+
+<span class="n">eth_2_key_manager</span> <span class="o">=</span> <span class="n">eth_2_key_manager_api_client</span><span class="o">.</span><span class="n">Eth2KeyManager</span><span class="p">()</span>
+<span class="n">pubkey</span> <span class="o">=</span> <span class="s2">&quot;0x93247f2209abcacf57b75a51dafae777f9dd38bc7053d1af526f220a7489a6d3a2753e5f3e8b1cfe39b56f43611df74a&quot;</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">eth_2_key_manager</span><span class="o">.</span><span class="n">delete_remote_keys</span><span class="o">.</span><span class="n">sync_detailed</span><span class="p">(</span><span class="n">pubkeys</span><span class="o">=</span><span class="p">[</span><span class="n">pubkey</span><span class="p">])</span>
+
+<span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Remote keys deleted successfully&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Remote keys delete failed with status code: </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.aecac24b.min.js"></script>
+      
+    
+  </body>
+</html>
