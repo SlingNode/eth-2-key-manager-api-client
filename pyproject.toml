@@ -3,7 +3,7 @@ name = "eth-2-key-manager-api-client"
 version = "0.1.0"
 description = "A client library for accessing ETH2 key manager API"
 
-authors = ["karolpivo <https://github.com/karolpivo>", "SlingNode <https://github.com/SlingNode"]
+authors = ["Karol Piwowarski <karol@slingnode.com>"]
 
 readme = "README.md"
 packages = [
