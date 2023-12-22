@@ -163,6 +163,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="." class="md-nav__link md-nav__link--active">
         
   
@@ -172,6 +183,34 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resources
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -644,6 +683,23 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resources
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -658,10 +714,13 @@
 
 
 <h1 id="overview">Overview</h1>
-<p>This module is a wrapper for ETH 2 Key Manager API. The API enables users to manage Ethereum Validators' keys. The API is an open standard defined here https://ethereum.github.io/keymanager-APIs/. All validator clients including Web3Signer implement the API.</p>
+<p>This module is a wrapper for ETH 2 Key Manager API. The API enables users to manage Ethereum Validators' keys. It is an open standard defined at <a href="https://ethereum.github.io/keymanager-APIs/">https://ethereum.github.io/keymanager-APIs/</a>. All validator clients including Web3Signer implement the API.</p>
 <p>Validator clients' native key management is CLI based which does not work well with automation tools such as Ansible. Furthermore each client does it slightly differently and some need to be restarted in order to import or delete keys.</p>
 <p>The ETH 2 Key Manager API (also referred to as Validator API) enables users to use a single interface to manage keys for all clients. The keystore operations performed using the API do not require the client to be restarted.</p>
-<p>The module provides synchronous and asynchronous methods for all API endpoints. The synchronous methods are blocking and will return the response object when the request is complete. The asynchronous methods are implemented using AsyncIO and will return a coroutine object that can be awaited.</p>
+<h2 id="resources">Resources</h2>
+<p>The Full documentation is available at <a href="https://eth-2-key-manager-api-client.slingnode.com/">https://eth-2-key-manager-api-client.slingnode.com/</a></p>
+<p>PyPi package: <a href="https://pypi.org/project/eth-2-key-manager-api-client/">https://pypi.org/project/eth-2-key-manager-api-client/</a></p>
+<p>GitHub repository: <a href="https://github.com/SlingNode/eth-2-key-manager-api-client/">https://github.com/SlingNode/eth-2-key-manager-api-client/</a></p>
 <h1 id="installation">Installation</h1>
 <p>The API client is available as a Python package. It can be installed using pip:</p>
 <div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>eth_2_key_manager_api_client
@@ -677,7 +736,7 @@ ETH_2_KEY_MANAGER_API_TOKEN
 <div class="highlight"><pre><span></span><code><span class="nv">ETH_2_KEY_MANAGER_API_BASE_URL</span><span class="o">=</span>http://192.168.121.146:7500
 <span class="nv">ETH_2_KEY_MANAGER_API_TOKEN</span><span class="o">=</span>api-token-0x02c21feda59e4759f558972e5038f21babb37e4e047f0a113a28bd1ad2f6263a16
 </code></pre></div>
-<p>All clients except Nimbus generate the bearer token automatically and save it to a file on the validator server. For the location of the file on each client refer to https://docs.slingnode.com/slingnode.ethereum/enabling-validator-client-api#bearer-token</p>
+<p>All clients except Nimbus generate the bearer token automatically and save it to a file on the validator server. For the location of the file on each client refer to <a href="https://docs.slingnode.com/slingnode.ethereum/enabling-validator-client-api#bearer-token">https://docs.slingnode.com/slingnode.ethereum/enabling-validator-client-api#bearer-token</a></p>
 <h3 id="creating-class-instance">Creating class instance</h3>
 <p>Create class instance using the default values:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">eth_2_key_manager_api_client</span>
@@ -690,7 +749,8 @@ ETH_2_KEY_MANAGER_API_TOKEN
 <span class="n">eth_2_key_manager</span> <span class="o">=</span> <span class="n">eth_2_key_manager_api_client</span><span class="o">.</span><span class="n">Eth2KeyManager</span><span class="p">(</span><span class="n">base_url</span><span class="o">=</span><span class="s2">&quot;http://192.168.121.146:7500&quot;</span><span class="p">,</span> <span class="n">token</span><span class="o">=</span><span class="s2">&quot;token&quot;</span><span class="p">)</span>
 </code></pre></div>
 <h1 id="examples">Examples</h1>
-<p>For full list of examples refer to <a href="examples/">Examples</a></p>
+<p>For full list of examples refer to <a href="examples/">examples</a></p>
+<p>This module provides synchronous and asynchronous methods for all API endpoints. The synchronous methods are blocking and will return the response object when the request is complete. The asynchronous methods are implemented using AsyncIO and will return a coroutine object that can be awaited.</p>
 <h2 id="import-keystores">Import keystores</h2>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">eth_2_key_manager_api_client</span>
 

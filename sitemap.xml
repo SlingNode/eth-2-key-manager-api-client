@@ -2,82 +2,82 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://eth-2-key-manager-api-client.slingnode.com/</loc>
-         <lastmod>2023-12-02</lastmod>
+         <lastmod>2023-12-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://eth-2-key-manager-api-client.slingnode.com/examples/</loc>
-         <lastmod>2023-12-02</lastmod>
+         <lastmod>2023-12-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://eth-2-key-manager-api-client.slingnode.com/testing/</loc>
-         <lastmod>2023-12-02</lastmod>
+         <lastmod>2023-12-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://eth-2-key-manager-api-client.slingnode.com/api_reference/client/</loc>
-         <lastmod>2023-12-02</lastmod>
+         <lastmod>2023-12-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://eth-2-key-manager-api-client.slingnode.com/api_reference/errors/</loc>
-         <lastmod>2023-12-02</lastmod>
+         <lastmod>2023-12-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://eth-2-key-manager-api-client.slingnode.com/api_reference/eth_2_keymanager/</loc>
-         <lastmod>2023-12-02</lastmod>
+         <lastmod>2023-12-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://eth-2-key-manager-api-client.slingnode.com/api_reference/helpers/</loc>
-         <lastmod>2023-12-02</lastmod>
+         <lastmod>2023-12-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://eth-2-key-manager-api-client.slingnode.com/api_reference/types/</loc>
-         <lastmod>2023-12-02</lastmod>
+         <lastmod>2023-12-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://eth-2-key-manager-api-client.slingnode.com/api_reference/api/fee_recipient/</loc>
-         <lastmod>2023-12-02</lastmod>
+         <lastmod>2023-12-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://eth-2-key-manager-api-client.slingnode.com/api_reference/api/gas_limit/</loc>
-         <lastmod>2023-12-02</lastmod>
+         <lastmod>2023-12-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://eth-2-key-manager-api-client.slingnode.com/api_reference/api/local_key_manager/</loc>
-         <lastmod>2023-12-02</lastmod>
+         <lastmod>2023-12-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://eth-2-key-manager-api-client.slingnode.com/api_reference/api/remote_key_manager/</loc>
-         <lastmod>2023-12-02</lastmod>
+         <lastmod>2023-12-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://eth-2-key-manager-api-client.slingnode.com/api_reference/models/fee_recipient/</loc>
-         <lastmod>2023-12-02</lastmod>
+         <lastmod>2023-12-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://eth-2-key-manager-api-client.slingnode.com/api_reference/models/gas_limit/</loc>
-         <lastmod>2023-12-02</lastmod>
+         <lastmod>2023-12-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://eth-2-key-manager-api-client.slingnode.com/api_reference/models/keystores/</loc>
-         <lastmod>2023-12-02</lastmod>
+         <lastmod>2023-12-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://eth-2-key-manager-api-client.slingnode.com/api_reference/models/remote_key_manager/</loc>
-         <lastmod>2023-12-02</lastmod>
+         <lastmod>2023-12-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
