@@ -1,15 +1,16 @@
 name: Run unit tests
 
-on: workflow_dispatch
-
-  # push:
-  #   branches:
-  #     - master
-  # pull_request:
-  #   branches:
-  #     - master
-  # # paths:
-  # #     - 'eth_2_key_manager_api_client/**'
+on:
+  push:
+    branches:
+      - '*'
+    paths:
+        - 'eth_2_key_manager_api_client/**'
+  pull_request:
+    branches:
+      - master
+    paths:
+        - 'eth_2_key_manager_api_client/**'
 
 jobs:
   test:
