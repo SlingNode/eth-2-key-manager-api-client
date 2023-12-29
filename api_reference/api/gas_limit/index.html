@@ -2427,7 +2427,7 @@ fe39b56f43611df74a.</p>
         <span class="k">async</span> <span class="k">with</span> <span class="n">httpx</span><span class="o">.</span><span class="n">AsyncClient</span><span class="p">(</span><span class="n">verify</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">verify_ssl</span><span class="p">)</span> <span class="k">as</span> <span class="n">_client</span><span class="p">:</span>
             <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">_client</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">_build_response</span><span class="p">(</span><span class="n">client</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="p">,</span> <span class="n">response</span><span class="o">=</span><span class="n">response</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">_build_response</span><span class="p">(</span><span class="n">client</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="p">,</span> <span class="n">response</span><span class="o">=</span><span class="n">response</span><span class="p">,</span> <span class="bp">cls</span><span class="o">=</span><span class="n">ListGasLimitResponse</span><span class="p">)</span>
 
     <span class="k">async</span> <span class="k">def</span> <span class="nf">asyncio</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
@@ -2838,7 +2838,7 @@ fe39b56f43611df74a.</p>
     <span class="k">async</span> <span class="k">with</span> <span class="n">httpx</span><span class="o">.</span><span class="n">AsyncClient</span><span class="p">(</span><span class="n">verify</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">verify_ssl</span><span class="p">)</span> <span class="k">as</span> <span class="n">_client</span><span class="p">:</span>
         <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">_client</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
-    <span class="k">return</span> <span class="n">_build_response</span><span class="p">(</span><span class="n">client</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="p">,</span> <span class="n">response</span><span class="o">=</span><span class="n">response</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">_build_response</span><span class="p">(</span><span class="n">client</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="p">,</span> <span class="n">response</span><span class="o">=</span><span class="n">response</span><span class="p">,</span> <span class="bp">cls</span><span class="o">=</span><span class="n">ListGasLimitResponse</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
           </details>
   </div>
