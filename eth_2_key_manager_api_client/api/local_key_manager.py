@@ -237,7 +237,7 @@ class ImportKeystores:
         async with httpx.AsyncClient(verify=self.client.verify_ssl) as _client:
             response = await _client.request(**kwargs)
 
-        return _build_response(client=self.client, response=response)
+        return _build_response(client=self.client, response=response, cls=ImportKeystoresResponse)
 
     async def asyncio(
         self,
@@ -534,7 +534,7 @@ class DeleteKeys:
         async with httpx.AsyncClient(verify=self.client.verify_ssl) as _client:
             response = await _client.request(**kwargs)
 
-        return _build_response(client=self.client, response=response)
+        return _build_response(client=self.client, response=response, cls=DeleteKeysResponse)
 
     async def asyncio(
         self,

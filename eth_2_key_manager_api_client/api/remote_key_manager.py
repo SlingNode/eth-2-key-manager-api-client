@@ -149,7 +149,7 @@ class DeleteRemoteKeys:
         async with httpx.AsyncClient(verify=self.client.verify_ssl) as _client:
             response = await _client.request(**kwargs)
 
-        return _build_response(client=self.client, response=response)
+        return _build_response(client=self.client, response=response, cls=DeleteRemoteKeysResponse)
 
     async def asyncio(self, pubkeys: List[str]) -> Optional[Union[DeleteRemoteKeysResponse, ErrorResponse]]:
         """Delete Remote Keys (asynchronous).
@@ -320,7 +320,7 @@ class ImportRemoteKeys:
         async with httpx.AsyncClient(verify=self.client.verify_ssl) as _client:
             response = await _client.request(**kwargs)
 
-        return _build_response(client=self.client, response=response)
+        return _build_response(client=self.client, response=response, cls=ImportRemoteKeysResponse)
 
     async def asyncio(self, remote_keys: List[Dict]) -> Optional[Union[ImportRemoteKeysResponse, ErrorResponse]]:
         """Import Remote Keys (asynchronous).
@@ -439,7 +439,7 @@ class ListRemoteKeys:
         async with httpx.AsyncClient(verify=self.client.verify_ssl) as _client:
             response = await _client.request(**kwargs)
 
-        return _build_response(client=self.client, response=response)
+        return _build_response(client=self.client, response=response, cls=ListRemoteKeysResponse)
 
     async def asyncio(
         self,
