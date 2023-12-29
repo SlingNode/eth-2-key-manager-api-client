@@ -294,7 +294,7 @@ class GetGasLimit:
         async with httpx.AsyncClient(verify=self.client.verify_ssl) as _client:
             response = await _client.request(**kwargs)
 
-        return _build_response(client=self.client, response=response)
+        return _build_response(client=self.client, response=response, cls=ListGasLimitResponse)
 
     async def asyncio(
         self,
