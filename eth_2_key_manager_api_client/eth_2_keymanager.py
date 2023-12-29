@@ -1,5 +1,4 @@
-"""This module contains the Eth2KeyManager class, which is the main class of the eth-2-key-manager-api-client package.
-"""
+"""This module contains the Eth2KeyManager class, which is the main class of the eth-2-key-manager-api-client package."""
 import os
 import ssl
 from typing import Dict, Union
