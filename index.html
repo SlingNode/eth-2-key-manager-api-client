@@ -200,6 +200,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#asynchronous-and-synchronous-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Asynchronous and synchronous methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#resources" class="md-nav__link">
     <span class="md-ellipsis">
       Resources
@@ -690,6 +699,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#asynchronous-and-synchronous-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Asynchronous and synchronous methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#resources" class="md-nav__link">
     <span class="md-ellipsis">
       Resources
@@ -717,6 +735,8 @@
 <p>This module is a wrapper for ETH 2 Key Manager API. The API enables users to manage Ethereum Validators' keys. It is an open standard defined at <a href="https://ethereum.github.io/keymanager-APIs/">https://ethereum.github.io/keymanager-APIs/</a>. All validator clients including Web3Signer implement the API.</p>
 <p>Validator clients' native key management is CLI based which does not work well with automation tools such as Ansible. Furthermore each client does it slightly differently and some need to be restarted in order to import or delete keys.</p>
 <p>The ETH 2 Key Manager API (also referred to as Validator API) enables users to use a single interface to manage keys for all clients. The keystore operations performed using the API do not require the client to be restarted.</p>
+<h2 id="asynchronous-and-synchronous-methods">Asynchronous and synchronous methods</h2>
+<p>The API client provides both asynchronous and synchronous methods. Both methods are implemented using the <a href="https://www.python-httpx.org/">httpx</a> library, which uses AsyncIO under the hood. The asynchronous methods let you perform operation on multiple validators in non-blocking manner. This is significantly faster when managing large number of validators. Refer to <a href="https://eth-2-key-manager-api-client.slingnode.com/">examples</a> for sample scripts.</p>
 <h2 id="resources">Resources</h2>
 <p>The Full documentation is available at <a href="https://eth-2-key-manager-api-client.slingnode.com/">https://eth-2-key-manager-api-client.slingnode.com/</a></p>
 <p>PyPi package: <a href="https://pypi.org/project/eth-2-key-manager-api-client/">https://pypi.org/project/eth-2-key-manager-api-client/</a></p>
@@ -750,8 +770,7 @@ ETH_2_KEY_MANAGER_API_TOKEN
 </code></pre></div>
 <h1 id="examples">Examples</h1>
 <p>For full list of examples refer to <a href="examples/">examples</a></p>
-<p>This module provides synchronous and asynchronous methods for all API endpoints. The synchronous methods are blocking and will return the response object when the request is complete. The asynchronous methods are implemented using AsyncIO and will return a coroutine object that can be awaited.</p>
-<h2 id="import-keystores">Import keystores</h2>
+<h2 id="import-keystores-synchronous">Import keystores - synchronous</h2>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">eth_2_key_manager_api_client</span>
 
 <span class="c1"># Create lists of keystore and password strings, note: the order of the lists must match `passwords[i]` must unlock `keystores[i]`</span>
@@ -793,7 +812,7 @@ ETH_2_KEY_MANAGER_API_TOKEN
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Keystores import failed with status code: </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span>
 </code></pre></div>
-<h2 id="list-keys">List keys</h2>
+<h2 id="list-keys-synchronous">List keys - synchronous</h2>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">eth_2_key_manager_api_client</span>
 
 <span class="n">eth_2_key_manager</span> <span class="o">=</span> <span class="n">eth_2_key_manager_api_client</span><span class="o">.</span><span class="n">Eth2KeyManager</span><span class="p">()</span>
@@ -809,6 +828,89 @@ ETH_2_KEY_MANAGER_API_TOKEN
             <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    </span><span class="si">{</span><span class="n">key</span><span class="o">.</span><span class="n">validating_pubkey</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;List keys failed with status code: </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="import-remote-keys-asynchronous">Import remote keys - asynchronous</h2>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">asyncio</span>
+
+<span class="kn">import</span> <span class="nn">eth_2_key_manager_api_client</span>
+<span class="kn">from</span> <span class="nn">tests.conftest</span> <span class="kn">import</span> <span class="n">parse_file</span>
+
+<span class="n">validators</span> <span class="o">=</span> <span class="n">parse_file</span><span class="p">(</span><span class="s2">&quot;../.env&quot;</span><span class="p">)</span>
+
+<span class="c1"># validators = [</span>
+<span class="c1">#     (</span>
+<span class="c1">#         &quot;LIGHTHOUSE&quot;,</span>
+<span class="c1">#         &quot;http://192.168.121.71:7500&quot;,</span>
+<span class="c1">#         &quot;api-token-0x024fa0a0c597e83a970e689866703a89a555c9ee602d08cf848ee7935509a62f33&quot;</span>
+<span class="c1">#     ),</span>
+<span class="c1">#     (</span>
+<span class="c1">#         &quot;TEKU&quot;,</span>
+<span class="c1">#         &quot;https://192.168.121.245:7500&quot;,</span>
+<span class="c1">#         &quot;5b874584cecab7eadfc3a224f177272f&quot;</span>
+<span class="c1">#     ),</span>
+<span class="c1">#     (</span>
+<span class="c1">#         &quot;NIMBUS&quot;,</span>
+<span class="c1">#         &quot;http://192.168.121.61:7500&quot;,</span>
+<span class="c1">#         &quot;fcb4869b587a71b6d7ff25c85ac312201e53&quot;</span>
+<span class="c1">#     ),</span>
+<span class="c1">#     (</span>
+<span class="c1">#         &quot;LODESTAR&quot;,</span>
+<span class="c1">#         &quot;http://192.168.121.118:7500&quot;,</span>
+<span class="c1">#         &quot;api-token-0xff6b738e030ee41e6bc317c204e2dae8965f6d666dc158e5690940936eeb35d9&quot;</span>
+<span class="c1">#     )</span>
+<span class="c1"># ]</span>
+
+<span class="n">remote_keys</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;pubkey&quot;</span><span class="p">:</span> <span class="s2">&quot;0x93247f2209abcacf57b75a51dafae777f9dd38bc7053d1af526f220a7489a6d3a2753e5f3e8b1cfe39b56f43611df74a&quot;</span><span class="p">,</span> <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://remote.signer&quot;</span><span class="p">}]</span>
+
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">import_remote_keys_async</span><span class="p">(</span><span class="n">validator</span><span class="p">):</span>
+
+    <span class="n">eth_2_key_manager</span> <span class="o">=</span> <span class="n">eth_2_key_manager_api_client</span><span class="o">.</span><span class="n">Eth2KeyManager</span><span class="p">(</span><span class="n">base_url</span><span class="o">=</span><span class="n">validator</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">token</span><span class="o">=</span><span class="n">validator</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+
+    <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">eth_2_key_manager</span><span class="o">.</span><span class="n">import_remote_keys</span><span class="o">.</span><span class="n">asyncio_detailed</span><span class="p">(</span><span class="n">remote_keys</span><span class="o">=</span><span class="n">remote_keys</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">validator</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">validator</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2"> - Remote keys imported successfully&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">validator</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">validator</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2"> - Remote keys import failed with status code: </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="n">import_remote_keys_async</span><span class="p">(</span><span class="n">validator</span><span class="p">)</span> <span class="k">for</span> <span class="n">validator</span> <span class="ow">in</span> <span class="n">validators</span><span class="p">))</span>
+
+
+<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
+</code></pre></div>
+<h2 id="list-keys-asynchronous">List keys - asynchronous</h2>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">asyncio</span>
+
+<span class="kn">import</span> <span class="nn">eth_2_key_manager_api_client</span>
+<span class="kn">from</span> <span class="nn">tests.conftest</span> <span class="kn">import</span> <span class="n">parse_file</span>
+
+<span class="n">validators</span> <span class="o">=</span> <span class="n">parse_file</span><span class="p">(</span><span class="s2">&quot;../.env&quot;</span><span class="p">)</span>
+
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">list_keys_async</span><span class="p">(</span><span class="n">validator</span><span class="p">):</span>
+
+    <span class="n">eth_2_key_manager</span> <span class="o">=</span> <span class="n">eth_2_key_manager_api_client</span><span class="o">.</span><span class="n">Eth2KeyManager</span><span class="p">(</span><span class="n">base_url</span><span class="o">=</span><span class="n">validator</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">token</span><span class="o">=</span><span class="n">validator</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+
+    <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">eth_2_key_manager</span><span class="o">.</span><span class="n">list_keys</span><span class="o">.</span><span class="n">asyncio_detailed</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">validator</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">validator</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2"> - Number of keys: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">parsed</span><span class="o">.</span><span class="n">data</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">parsed</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;List of keys:&quot;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">parsed</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    </span><span class="si">{</span><span class="n">key</span><span class="o">.</span><span class="n">validating_pubkey</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">validator</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">validator</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2"> - List keys failed with status code: </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="n">list_keys_async</span><span class="p">(</span><span class="n">validator</span><span class="p">)</span> <span class="k">for</span> <span class="n">validator</span> <span class="ow">in</span> <span class="n">validators</span><span class="p">))</span>
+
+
+<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
 </code></pre></div>
 
 

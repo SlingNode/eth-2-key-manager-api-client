@@ -799,7 +799,7 @@
         <tr>
           <td><code>base_url</code></td>
           <td>
-                <code>str | None</code>
+                <code><span title="typing.Union">Union</span>[str, None]</code>
           </td>
           <td>
             <div class="doc-md-description">
@@ -813,7 +813,7 @@
         <tr>
           <td><code>token</code></td>
           <td>
-                <code>str | None</code>
+                <code><span title="typing.Union">Union</span>[str, None]</code>
           </td>
           <td>
             <div class="doc-md-description">
@@ -1029,14 +1029,14 @@
 <span class="sd">    * Listing remote keys</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        base_url (str | None): The base URL of the Eth2 Key Manager API.</span>
-<span class="sd">        token (str | None): The API token to authenticate with the Eth2 Key Manager API.</span>
-<span class="sd">        cookies (Dict[str, str]): Optional cookies to send with requests.</span>
-<span class="sd">        headers (Dict[str, str]): Optional headers to send with requests.</span>
-<span class="sd">        timeout (float): The timeout for requests.</span>
-<span class="sd">        verify_ssl (Union[str, bool, ssl.SSLContext]): Whether to verify SSL certificates.</span>
-<span class="sd">        raise_on_unexpected_status (bool): Whether to raise an exception if a request returns an unexpected status code.</span>
-<span class="sd">        follow_redirects (bool): Whether to follow redirects.</span>
+<span class="sd">        base_url: The base URL of the Eth2 Key Manager API.</span>
+<span class="sd">        token: The API token to authenticate with the Eth2 Key Manager API.</span>
+<span class="sd">        cookies: Optional cookies to send with requests.</span>
+<span class="sd">        headers: Optional headers to send with requests.</span>
+<span class="sd">        timeout: The timeout for requests.</span>
+<span class="sd">        verify_ssl: Whether to verify SSL certificates.</span>
+<span class="sd">        raise_on_unexpected_status: Whether to raise an exception if a request returns an unexpected status code.</span>
+<span class="sd">        follow_redirects: Whether to follow redirects.</span>
 
 <span class="sd">    Raises:</span>
 <span class="sd">        ConfigurationMissing: If the base_url or token is not provided.</span>

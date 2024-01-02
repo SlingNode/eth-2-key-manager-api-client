@@ -753,11 +753,44 @@
 <div class="highlight"><pre><span></span><code>VALIDATOR_NAME<span class="w"> </span>BASE_URL<span class="w"> </span>API_TOKEN
 </code></pre></div>
 <p>For example:</p>
-<div class="highlight"><pre><span></span><code>TEKU<span class="w"> </span>http://192.168.121.35:7500<span class="w"> </span>410ef40da53b447f76ec52fa43092032
+<div class="highlight"><pre><span></span><code>TEKU<span class="w"> </span>https://192.168.121.35:7500<span class="w"> </span>410ef40da53b447f76ec52fa43092032
 LIGHTHOUSE<span class="w"> </span>http://192.168.121.189:7500<span class="w"> </span>api-token-0x022b0c73c4757866df53b9b24a5b254222daca269e8be677c1efb15a93aba148a7
 NIMBUS<span class="w"> </span>http://192.168.121.42:7500<span class="w"> </span>06ab97c6170c1ae09bf3eb69a300d2795fb6
 LODESTAR<span class="w"> </span>http://192.168.121.57:7500<span class="w"> </span>api-token-0x9e75d2fb89d9a8230d027665ad0f67b777aaa2f1d23f282125001d0dea753901
 PRYSM<span class="w"> </span>http://192.168.121.53:7500<span class="w"> </span>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.e30.orijiINlQIwSlB5ZxjmzAEqlYtI3SUNC6ennFnbcVCs
+</code></pre></div>
+<p>Sample output:</p>
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>-m<span class="w"> </span>pytest<span class="w"> </span>tests/e2e/test_e2e_api_fee_recipient_async.py<span class="w"> </span>-s
+<span class="o">====================================================</span><span class="w"> </span><span class="nb">test</span><span class="w"> </span>session<span class="w"> </span><span class="nv">starts</span><span class="w"> </span><span class="o">====================================================</span>
+platform<span class="w"> </span>linux<span class="w"> </span>--<span class="w"> </span>Python<span class="w"> </span><span class="m">3</span>.10.12,<span class="w"> </span>pytest-7.4.3,<span class="w"> </span>pluggy-1.3.0
+rootdir:<span class="w"> </span>/home/kp/projects/slingnode/eth-2-key-manager-api-client
+plugins:<span class="w"> </span>mock-3.12.0,<span class="w"> </span>cov-4.1.0,<span class="w"> </span>httpx-0.26.0,<span class="w"> </span>asyncio-0.21.1,<span class="w"> </span>anyio-4.1.0
+asyncio:<span class="w"> </span><span class="nv">mode</span><span class="o">=</span>strict
+collected<span class="w"> </span><span class="m">4</span><span class="w"> </span>items
+
+tests/e2e/test_e2e_api_fee_recipient_async.py
+Validator<span class="w"> </span>client<span class="w"> </span>-&gt;<span class="w"> </span>LIGHTHOUSE
+Fee<span class="w"> </span>Recipient<span class="w"> </span><span class="nb">set</span><span class="w"> </span>successfully
+Fee<span class="w"> </span>recipient<span class="w"> </span><span class="k">for</span><span class="w"> </span>pubkey<span class="w"> </span>0x99c4c42fac7d1393956bd9e2785ed67cf5aaca4bf56d2fcda94c42d6042aebb1723ce6bac6f0216ff8c5d4f9f013008b<span class="w"> </span>is<span class="w"> </span>0xabcf8e0d4e9587369b2301d0790347320302cc09
+Fee<span class="w"> </span>Recipient<span class="w"> </span>deleted<span class="w"> </span>successfully
+.
+Validator<span class="w"> </span>client<span class="w"> </span>-&gt;<span class="w"> </span>TEKU
+Fee<span class="w"> </span>Recipient<span class="w"> </span><span class="nb">set</span><span class="w"> </span>successfully
+Fee<span class="w"> </span>recipient<span class="w"> </span><span class="k">for</span><span class="w"> </span>pubkey<span class="w"> </span>0x99c4c42fac7d1393956bd9e2785ed67cf5aaca4bf56d2fcda94c42d6042aebb1723ce6bac6f0216ff8c5d4f9f013008b<span class="w"> </span>is<span class="w"> </span>0xAbcF8e0d4e9587369b2301D0790347320302cc09
+Fee<span class="w"> </span>Recipient<span class="w"> </span>deleted<span class="w"> </span>successfully
+.
+Validator<span class="w"> </span>client<span class="w"> </span>-&gt;<span class="w"> </span>NIMBUS
+Fee<span class="w"> </span>Recipient<span class="w"> </span><span class="nb">set</span><span class="w"> </span>successfully
+Fee<span class="w"> </span>recipient<span class="w"> </span><span class="k">for</span><span class="w"> </span>pubkey<span class="w"> </span>0x99c4c42fac7d1393956bd9e2785ed67cf5aaca4bf56d2fcda94c42d6042aebb1723ce6bac6f0216ff8c5d4f9f013008b<span class="w"> </span>is<span class="w"> </span>0xabcf8e0d4e9587369b2301d0790347320302cc09
+Fee<span class="w"> </span>Recipient<span class="w"> </span>deleted<span class="w"> </span>successfully
+.
+Validator<span class="w"> </span>client<span class="w"> </span>-&gt;<span class="w"> </span>LODESTAR
+Fee<span class="w"> </span>Recipient<span class="w"> </span><span class="nb">set</span><span class="w"> </span>successfully
+Fee<span class="w"> </span>recipient<span class="w"> </span><span class="k">for</span><span class="w"> </span>pubkey<span class="w"> </span>0x99c4c42fac7d1393956bd9e2785ed67cf5aaca4bf56d2fcda94c42d6042aebb1723ce6bac6f0216ff8c5d4f9f013008b<span class="w"> </span>is<span class="w"> </span>0xabcf8e0d4e9587369b2301d0790347320302cc09
+Fee<span class="w"> </span>Recipient<span class="w"> </span>deleted<span class="w"> </span>successfully
+.
+
+<span class="o">====================================================</span><span class="w"> </span><span class="m">4</span><span class="w"> </span>passed<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">13</span>.87s<span class="w"> </span><span class="o">=====================================================</span>
 </code></pre></div>
 <h1 id="testing-using-ansible-molecule">Testing using Ansible Molecule</h1>
 <p>The project includes a Molecule test suite that can be used to test the API client against a real Ethereum Validator client. Molecule is a testing framework for Ansible roles. The test suite is located in the <code>molecule</code> directory. The test suite uses SlingNode Ethereum Ansible roles to set up the Ethereum Validator clients. The included test suite will automatically create the .env file and output the details required by the pytest e2e tests.</p>
