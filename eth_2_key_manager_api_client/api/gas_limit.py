@@ -31,13 +31,27 @@ class DeleteGasLimit:
     The endpoint returns the following HTTP status code if successful:
         - 204: No Content
 
-    Typical usage example:
+    Typical usage example - synchronous:
         ```python
         import eth_2_key_manager_api_client
 
         eth_2_key_manager = eth_2_key_manager_api_client.Eth2KeyManager()
         pubkey = "0x99c4c42fac7d1393956bd9e2785ed67cf5aaca4bf56d2fcda94c42d6042aebb1723ce6bac6f0216ff8c5d4f9f013008b"
         response = eth_2_key_manager.delete_gas_limit.sync_detailed(pubkey=pubkey)
+        if response.status_code == 204:
+            print("Gas limit deleted successfully")
+        else:
+            print(f"Gas limit deletion failed with status code: {response.status_code}")
+        assert response.status_code == 204
+        ```
+
+    Typical usage example - asynchronous:
+        ```python
+        import eth_2_key_manager_api_client
+
+        eth_2_key_manager = eth_2_key_manager_api_client.Eth2KeyManager()
+        pubkey = "0x99c4c42fac7d1393956bd9e2785ed67cf5aaca4bf56d2fcda94c42d6042aebb1723ce6bac6f0216ff8c5d4f9f013008b"
+        response = await eth_2_key_manager.delete_gas_limit.asyncio_detailed(pubkey=pubkey)
         if response.status_code == 204:
             print("Gas limit deleted successfully")
         else:
@@ -181,6 +195,20 @@ class GetGasLimit:
         eth_2_key_manager = eth_2_key_manager_api_client.Eth2KeyManager()
         pubkey = "0x99c4c42fac7d1393956bd9e2785ed67cf5aaca4bf56d2fcda94c42d6042aebb1723ce6bac6f0216ff8c5d4f9f013008b"
         response = eth_2_key_manager.get_gas_limit.sync_detailed(pubkey=pubkey)
+        if response.status_code == 200:
+            print(f"Gas limit for pubkey {pubkey} is {response.parsed.data.gas_limit}")
+        else:
+            print(f"Gas limit listing failed with status code: {response.status_code}")
+        assert response.status_code == 200
+        ```
+
+    Typical usage example - asynchronous:
+        ```python
+        import eth_2_key_manager_api_client
+
+        eth_2_key_manager = eth_2_key_manager_api_client.Eth2KeyManager()
+        pubkey = "0x99c4c42fac7d1393956bd9e2785ed67cf5aaca4bf56d2fcda94c42d6042aebb1723ce6bac6f0216ff8c5d4f9f013008b"
+        response = await eth_2_key_manager.get_gas_limit.asyncio_detailed(pubkey=pubkey)
         if response.status_code == 200:
             print(f"Gas limit for pubkey {pubkey} is {response.parsed.data.gas_limit}")
         else:
@@ -334,13 +362,27 @@ class SetGasLimit:
     The endpoint returns the following HTTP status code if successful:
         - 202: Accepted
 
-    Typical usage example:
+    Typical usage example - synchronous:
         ```python
         import eth_2_key_manager_api_client
 
         eth_2_key_manager = eth_2_key_manager_api_client.Eth2KeyManager()
         pubkey = "0x99c4c42fac7d1393956bd9e2785ed67cf5aaca4bf56d2fcda94c42d6042aebb1723ce6bac6f0216ff8c5d4f9f013008b"
         response = eth_2_key_manager.set_gas_limit.sync_detailed(pubkey=pubkey, gas_limit="999999")
+        if response.status_code == 202:
+            print("Gas limit set successfully")
+        else:
+            print(f"Gas limit set failed with status code: {response.status_code}")
+        assert response.status_code == 202
+        ```
+
+    Typical usage example - asynchronous:
+        ```python
+        import eth_2_key_manager_api_client
+
+        eth_2_key_manager = eth_2_key_manager_api_client.Eth2KeyManager()
+        pubkey = "0x99c4c42fac7d1393956bd9e2785ed67cf5aaca4bf56d2fcda94c42d6042aebb1723ce6bac6f0216ff8c5d4f9f013008b"
+        response = await eth_2_key_manager.set_gas_limit.asyncio_detailed(pubkey=pubkey, gas_limit="999999")
         if response.status_code == 202:
             print("Gas limit set successfully")
         else:

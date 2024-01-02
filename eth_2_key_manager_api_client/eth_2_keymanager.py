@@ -33,14 +33,14 @@ class Eth2KeyManager:
     * Listing remote keys
 
     Args:
-        base_url (str | None): The base URL of the Eth2 Key Manager API.
-        token (str | None): The API token to authenticate with the Eth2 Key Manager API.
-        cookies (Dict[str, str]): Optional cookies to send with requests.
-        headers (Dict[str, str]): Optional headers to send with requests.
-        timeout (float): The timeout for requests.
-        verify_ssl (Union[str, bool, ssl.SSLContext]): Whether to verify SSL certificates.
-        raise_on_unexpected_status (bool): Whether to raise an exception if a request returns an unexpected status code.
-        follow_redirects (bool): Whether to follow redirects.
+        base_url: The base URL of the Eth2 Key Manager API.
+        token: The API token to authenticate with the Eth2 Key Manager API.
+        cookies: Optional cookies to send with requests.
+        headers: Optional headers to send with requests.
+        timeout: The timeout for requests.
+        verify_ssl: Whether to verify SSL certificates.
+        raise_on_unexpected_status: Whether to raise an exception if a request returns an unexpected status code.
+        follow_redirects: Whether to follow redirects.
 
     Raises:
         ConfigurationMissing: If the base_url or token is not provided.

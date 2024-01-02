@@ -34,11 +34,47 @@ VALIDATOR_NAME BASE_URL API_TOKEN
 For example:
 
 ```bash
-TEKU http://192.168.121.35:7500 410ef40da53b447f76ec52fa43092032
+TEKU https://192.168.121.35:7500 410ef40da53b447f76ec52fa43092032
 LIGHTHOUSE http://192.168.121.189:7500 api-token-0x022b0c73c4757866df53b9b24a5b254222daca269e8be677c1efb15a93aba148a7
 NIMBUS http://192.168.121.42:7500 06ab97c6170c1ae09bf3eb69a300d2795fb6
 LODESTAR http://192.168.121.57:7500 api-token-0x9e75d2fb89d9a8230d027665ad0f67b777aaa2f1d23f282125001d0dea753901
 PRYSM http://192.168.121.53:7500 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.e30.orijiINlQIwSlB5ZxjmzAEqlYtI3SUNC6ennFnbcVCs
+```
+
+Sample output:
+
+```bash
+python -m pytest tests/e2e/test_e2e_api_fee_recipient_async.py -s
+==================================================== test session starts ====================================================
+platform linux -- Python 3.10.12, pytest-7.4.3, pluggy-1.3.0
+rootdir: /home/kp/projects/slingnode/eth-2-key-manager-api-client
+plugins: mock-3.12.0, cov-4.1.0, httpx-0.26.0, asyncio-0.21.1, anyio-4.1.0
+asyncio: mode=strict
+collected 4 items
+
+tests/e2e/test_e2e_api_fee_recipient_async.py
+Validator client -> LIGHTHOUSE
+Fee Recipient set successfully
+Fee recipient for pubkey 0x99c4c42fac7d1393956bd9e2785ed67cf5aaca4bf56d2fcda94c42d6042aebb1723ce6bac6f0216ff8c5d4f9f013008b is 0xabcf8e0d4e9587369b2301d0790347320302cc09
+Fee Recipient deleted successfully
+.
+Validator client -> TEKU
+Fee Recipient set successfully
+Fee recipient for pubkey 0x99c4c42fac7d1393956bd9e2785ed67cf5aaca4bf56d2fcda94c42d6042aebb1723ce6bac6f0216ff8c5d4f9f013008b is 0xAbcF8e0d4e9587369b2301D0790347320302cc09
+Fee Recipient deleted successfully
+.
+Validator client -> NIMBUS
+Fee Recipient set successfully
+Fee recipient for pubkey 0x99c4c42fac7d1393956bd9e2785ed67cf5aaca4bf56d2fcda94c42d6042aebb1723ce6bac6f0216ff8c5d4f9f013008b is 0xabcf8e0d4e9587369b2301d0790347320302cc09
+Fee Recipient deleted successfully
+.
+Validator client -> LODESTAR
+Fee Recipient set successfully
+Fee recipient for pubkey 0x99c4c42fac7d1393956bd9e2785ed67cf5aaca4bf56d2fcda94c42d6042aebb1723ce6bac6f0216ff8c5d4f9f013008b is 0xabcf8e0d4e9587369b2301d0790347320302cc09
+Fee Recipient deleted successfully
+.
+
+==================================================== 4 passed in 13.87s =====================================================
 ```
 
 # Testing using Ansible Molecule

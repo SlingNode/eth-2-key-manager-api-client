@@ -19,6 +19,31 @@
       ansible.builtin.include_role:
         name: slingnode.ethereum
 
+
+    - name: Copy prysm_wallet_pass.txt to initilize a wallet
+      ansible.builtin.copy:
+        src: prysm_wallet_pass.txt
+        dest: /opt/blockchain/validator/prysm/prysm_wallet_pass.txt
+      when: clients.validator == "prysm"
+
+
+    - name: Create wallet
+      ansible.builtin.command: docker exec validator /app/cmd/validator/validator wallet create --wallet-dir=/var/lib/prysm --wallet-password-file=/var/lib/prysm/prysm_wallet_pass.txt --keymanager-kind=imported --accept-terms-of-use --goerli
+      when: clients.validator == "prysm"
+      ignore_errors: true
+
+
+    - name: Set correct permissions on prysm wallet
+      ansible.builtin.file:
+        path: /opt/blockchain/validator/prysm/direct/accounts/all-accounts.keystore.json
+        mode: 0600
+      when: clients.validator == "prysm"
+
+    - name: Restart prysm validator
+      ansible.builtin.command: docker restart validator
+      when: clients.validator == "prysm"
+
+
     - name: Get Lighthouse validator api token
       ansible.builtin.command: head -n 1 /opt/blockchain/validator/lighthouse/validators/api-token.txt
       register: validator_api_token_lighthouse
@@ -35,20 +60,20 @@
       when: clients.validator == "lighthouse"
 
 
-    # - name: Get Prysm validator api token
-    #   ansible.builtin.command: sed -n '2p' /opt/blockchain/validator/prysm/auth-token
-    #   register: validator_api_token_prysm
-    #   when: clients.validator == "prysm"
-    #   retries: 30
-    #   delay: 5
-    #   until: validator_api_token_prysm.rc == 0
+    - name: Get Prysm validator api token
+      ansible.builtin.command: sed -n '2p' /opt/blockchain/validator/prysm/auth-token
+      register: validator_api_token_prysm
+      when: clients.validator == "prysm"
+      retries: 30
+      delay: 5
+      until: validator_api_token_prysm.rc == 0
 
 
-    # - name: export the IP address of the Prysm instance
-    #   local_action:
-    #     shell printf "\nPRYSM http://{{ ansible_default_ipv4.address }}:7500 {{ validator_api_token_prysm.stdout }}" >> {{ dotenv_file_path }}
-    #   become: false
-    #   when: clients.validator == "prysm"
+    - name: export the IP address of the Prysm instance
+      local_action:
+        shell printf "\nPRYSM http://{{ ansible_default_ipv4.address }}:7500 {{ validator_api_token_prysm.stdout }}" >> {{ dotenv_file_path }}
+      become: false
+      when: clients.validator == "prysm"
 
 
     - name: Get Teku validator api token
