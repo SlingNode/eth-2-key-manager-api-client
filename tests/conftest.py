@@ -21,10 +21,16 @@ def parse_file(filename=".env") -> List[Tuple[str, str, str]]:
 
 
 @pytest.fixture
+def get_client_configs():
+    return parse_file()
+
+
+@pytest.fixture
 def set_valid_client_config_env_vars(request):
     print(f"\nValidator client -> {request.param[0]}")
     os.environ["ETH_2_KEY_MANAGER_API_BASE_URL"] = request.param[1]
     os.environ["ETH_2_KEY_MANAGER_API_TOKEN"] = request.param[2]
+    return request.param[0]
 
 
 @pytest.fixture

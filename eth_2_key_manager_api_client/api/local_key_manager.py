@@ -281,12 +281,26 @@ class ListKeys:
     The endpoint returns the following HTTP status code if successful:
         - 200: OK
 
-    Typical usage example:
+    Typical usage example - synchronous:
         ```python
         import eth_2_key_manager_api_client
 
         eth_2_key_manager = eth_2_key_manager_api_client.Eth2KeyManager()
         response = eth_2_key_manager.list_keys.sync_detailed()
+
+        if response.status_code == 200:
+            print(f"List of keys: {response.parsed.data}")
+        else:
+            print(f"List keys failed with status code: {response.status_code}")
+        assert response.status_code == 200
+        ```
+
+    Typical usage example - asynchronous:
+        ```python
+        import eth_2_key_manager_api_client
+
+        eth_2_key_manager = eth_2_key_manager_api_client.Eth2KeyManager()
+        response = await eth_2_key_manager.list_keys.asyncio_detailed()
 
         if response.status_code == 200:
             print(f"List of keys: {response.parsed.data}")
@@ -387,7 +401,7 @@ class DeleteKeys:
     The endpoint returns the following HTTP status code if successful:
         - 204: No Content
 
-    Typical usage example:
+    Typical usage example - synchronous:
         ```python
         import eth_2_key_manager_api_client
 
@@ -395,6 +409,21 @@ class DeleteKeys:
         pubkey = "0x99c4c42fac7d1393956bd9e2785ed67cf5aaca4bf56d2fcda94c42d6042aebb1723ce6bac6f0216ff8c5d4f9f013008b"
 
         response = eth_2_key_manager.delete_keys.sync_detailed(pubkeys=[pubkey])
+        if response.status_code == 200:
+            print("Keystores deleted successfully")
+        else:
+            print(f"Keystores delete failed with status code: {response.status_code}")
+        assert response.status_code == 200
+        ```
+
+    Typical usage example - synchronous:
+        ```python
+        import eth_2_key_manager_api_client
+
+        eth_2_key_manager = eth_2_key_manager_api_client.Eth2KeyManager()
+        pubkey = "0x99c4c42fac7d1393956bd9e2785ed67cf5aaca4bf56d2fcda94c42d6042aebb1723ce6bac6f0216ff8c5d4f9f013008b"
+
+        response = await eth_2_key_manager.delete_keys.asyncio_detailed(pubkeys=[pubkey])
         if response.status_code == 200:
             print("Keystores deleted successfully")
         else:

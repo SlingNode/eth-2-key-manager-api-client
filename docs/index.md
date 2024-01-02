@@ -6,6 +6,11 @@ Validator clients' native key management is CLI based which does not work well w
 
 The ETH 2 Key Manager API (also referred to as Validator API) enables users to use a single interface to manage keys for all clients. The keystore operations performed using the API do not require the client to be restarted.
 
+## Asynchronous and synchronous methods
+
+The API client provides both asynchronous and synchronous methods. Both methods are implemented using the [httpx](https://www.python-httpx.org/) library, which uses AsyncIO under the hood. The asynchronous methods let you perform operation on multiple validators in non-blocking manner. This is significantly faster when managing large number of validators. Refer to [examples](https://eth-2-key-manager-api-client.slingnode.com/) for sample scripts.
+
+
 ## Resources
 
 The Full documentation is available at [https://eth-2-key-manager-api-client.slingnode.com/](https://eth-2-key-manager-api-client.slingnode.com/)
@@ -64,11 +69,11 @@ eth_2_key_manager = eth_2_key_manager_api_client.Eth2KeyManager(base_url="http:/
 
 # Examples
 
+
 For full list of examples refer to [examples](examples.md)
 
-This module provides synchronous and asynchronous methods for all API endpoints. The synchronous methods are blocking and will return the response object when the request is complete. The asynchronous methods are implemented using AsyncIO and will return a coroutine object that can be awaited.
 
-## Import keystores
+## Import keystores - synchronous
 
 ```python
 --8<--
@@ -76,10 +81,26 @@ examples/import_keystores.py
 --8<--
 ```
 
-## List keys
+## List keys - synchronous
 
 ```python
 --8<--
 examples/list_keys.py
+--8<--
+```
+
+## Import remote keys - asynchronous
+
+```python
+--8<--
+examples/import_remote_keys_async.py
+--8<--
+```
+
+## List keys - asynchronous
+
+```python
+--8<--
+examples/list_keys_async.py
 --8<--
 ```

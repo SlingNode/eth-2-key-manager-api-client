@@ -5,15 +5,22 @@ The example scripts are located in the examples directory.
 
 # Local Key Manager
 
-## Import keystores
+## Import keystores - synchronous
 
 ```python
 --8<--
 examples/import_keystores.py
 --8<--
 ```
+## Import keystores - async
 
-## List keys
+```python
+--8<--
+examples/import_keystores_async.py
+--8<--
+```
+
+## List keys - synchronous
 
 ```python
 --8<--
@@ -21,11 +28,27 @@ examples/list_keys.py
 --8<--
 ```
 
-## Delete keys
+## List keys - async
+
+```python
+--8<--
+examples/list_keys_async.py
+--8<--
+```
+
+## Delete keys - synchronous
 
 ```python
 --8<--
 examples/delete_keys.py
+--8<--
+```
+
+## Delete keys - async
+
+```python
+--8<--
+examples/delete_keys_async.py
 --8<--
 ```
 
@@ -83,7 +106,7 @@ examples/delete_fee_recipient.py
 
 # Remote Key Manager
 
-## Import remote keys
+## Import remote keys - synchronous
 
 ```python
 --8<--
@@ -91,7 +114,15 @@ examples/import_remote_keys.py
 --8<--
 ```
 
-## List remote keys
+## Import remote keys - async
+
+```python
+--8<--
+examples/import_remote_keys_async.py
+--8<--
+```
+
+## List remote keys - synchronous
 
 ```python
 --8<--
@@ -99,10 +130,26 @@ examples/list_remote_keys.py
 --8<--
 ```
 
-## Delete remote keys
+## List remote keys - async
+
+```python
+--8<--
+examples/list_remote_keys.py
+--8<--
+```
+
+## Delete remote keys - synchronous
 
 ```python
 --8<--
 examples/delete_remote_keys.py
+--8<--
+```
+
+## Delete remote keys - async
+
+```python
+--8<--
+examples/delete_remote_keys_async.py
 --8<--
 ```
